@@ -1,0 +1,9 @@
+{
+  "name": "异界觉醒",
+  "description": "这是一个把现实纽约地图和二次元转生世界观结合在一起的「赏金猎人」互动系统。玩家在纽约转生为赏金猎人，通过实名觉醒、选择种族、在地图上接悬赏任务、到指定地点行动并提交照片证明来完成任务并升级。",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation",
+    "microphone"
+  ]
+}

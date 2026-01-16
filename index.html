@@ -1,0 +1,93 @@
+
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-leaflet": "https://esm.sh/react-leaflet@^5.0.0",
+    "leaflet": "https://esm.sh/leaflet@^1.9.4",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.35.0",
+    "@react-three/fiber": "https://esm.sh/@react-three/fiber@^9.5.0",
+    "@react-three/drei": "https://esm.sh/@react-three/drei@^10.7.7",
+    "three": "https://esm.sh/three@^0.182.0"
+  }
+}
+</script>
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>转生·艾塞尔加德公会</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['system-ui', 'sans-serif'],
+              fantasy: ['Cinzel', 'serif'],
+            },
+            colors: {
+              fantasy: {
+                bg: '#050b14',
+                gold: '#FFD700',
+                cyan: '#00F0FF',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+      body { margin: 0; background: #020408; color: white; height: 100vh; width: 100vw; overflow: hidden; }
+      #root { height: 100%; width: 100%; }
+      
+      /* --- 1:1 Concept Art Visual Tuning --- */
+      /* Makes satellite imagery look like vibrant anime background art */
+      .fantasy-tiles { 
+        filter: brightness(1.25) contrast(1.15) saturate(1.8) hue-rotate(-5deg);
+        mix-blend-mode: normal;
+      }
+      
+      /* Deep Blue Ocean Background matches the concept art water */
+      .leaflet-container { background: #102a43 !important; }
+      
+      /* --- Animations --- */
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+      }
+      .marker-float { animation: float 4s ease-in-out infinite; }
+      
+      @keyframes beam-pulse {
+        0%, 100% { opacity: 0.8; height: 350px; box-shadow: 0 0 30px #00F0FF; }
+        50% { opacity: 1; height: 400px; box-shadow: 0 0 60px #00F0FF; }
+      }
+      .tower-beam-anim { animation: beam-pulse 3s ease-in-out infinite; }
+      
+      @keyframes text-shine {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 100% 50%; }
+      }
+
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
